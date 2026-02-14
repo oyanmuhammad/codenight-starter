@@ -1,8 +1,8 @@
 # 🚀 CodeNight Starter
 
-> **Starter kit Next.js 16 yang super ringan dan siap pakai!** Tanpa bloat, tanpa konfigurasi ribet, langsung coding!
+> **Starter kit Next.js 16 yang super ringan dan siap pakai!** Tanpa bloat, tanpa konfigurasi ribet, siap coding!
 
-Dibuat dengan stack modern terbaik untuk membangun aplikasi web full-stack yang cepat, aman, dan scalable. Semua sudah dikonfigurasi dengan best practice terbaru, clone and happy coding!
+Menggunakan stack modern pilihan dengan konfigurasi yang rapi dan mengikuti standar best practice terbaru. Siap membantu Anda membangun aplikasi web full-stack yang cepat, aman, dan scalable sejak awal. Happy coding! 🎉
 
 ## ✨ Fitur Unggulan
 
@@ -266,7 +266,6 @@ Starter ini sudah dikonfigurasi dengan best practice security:
 - ✅ **Environment validation** di runtime
 - ✅ **Type-safe** database queries
 - ✅ **Protected routes** dengan proxy.ts
-- ✅ **No deprecated APIs** - semua menggunakan v7/v16 latest
 
 ## 📚 Tech Stack Details
 
