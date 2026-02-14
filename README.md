@@ -324,4 +324,4 @@ Contributions, issues, dan feature requests sangat diterima!
 
 **Happy Coding!** 🎉
 
-Dibuat dengan ❤️ menggunakan stack terbaik 2026
+Dibuat dengan ❤️ untuk komunitas developer Indonesia. Semoga starter kit ini membantu kamu membangun aplikasi web yang keren dengan Next.js 16 dan stack modern lainnya! 🚀
