@@ -132,7 +132,7 @@ Database schema dan seeding:
 ### 1️⃣ Clone & Install
 
 ```bash
-git clone <repo-url> my-app
+git clone https://github.com/oyanmuhammad/codenight-starter my-app
 cd my-app
 bun install
 ```
