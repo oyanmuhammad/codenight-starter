@@ -3,6 +3,7 @@ import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { Suspense } from "react";
 import { LogoutButton } from "./logout-button";
+import { DashboardLoadingSkeleton } from "./loading-skeleton";
 
 async function SessionCheck({ children }: { children: React.ReactNode }) {
   const session = await auth.api.getSession({
@@ -37,13 +38,7 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <Suspense
-      fallback={
-        <div className="flex min-h-screen items-center justify-center">
-          Loading...
-        </div>
-      }
-    >
+    <Suspense fallback={<DashboardLoadingSkeleton />}>
       <SessionCheck>{children}</SessionCheck>
     </Suspense>
   );
