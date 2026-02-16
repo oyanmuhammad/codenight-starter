@@ -1,13 +1,10 @@
 import { auth } from "@/lib/auth";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
+import { Suspense } from "react";
 import { LogoutButton } from "./logout-button";
 
-export default async function DashboardLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+async function SessionCheck({ children }: { children: React.ReactNode }) {
   const session = await auth.api.getSession({
     headers: await headers(),
   });
@@ -31,5 +28,23 @@ export default async function DashboardLayout({
       </header>
       <main className="mx-auto max-w-5xl px-4 py-8">{children}</main>
     </div>
+  );
+}
+
+export default function DashboardLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <Suspense
+      fallback={
+        <div className="flex min-h-screen items-center justify-center">
+          Loading...
+        </div>
+      }
+    >
+      <SessionCheck>{children}</SessionCheck>
+    </Suspense>
   );
 }

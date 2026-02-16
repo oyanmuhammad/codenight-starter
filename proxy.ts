@@ -2,14 +2,12 @@ import { NextRequest, NextResponse } from "next/server";
 import { auth } from "@/lib/auth";
 
 const protectedRoutes = ["/dashboard"];
-const publicRoutes = ["/", "/login"];
 
 export async function proxy(req: NextRequest) {
   const path = req.nextUrl.pathname;
   const isProtectedRoute = protectedRoutes.some(
     (route) => path === route || path.startsWith(`${route}/`),
   );
-  const isPublicRoute = publicRoutes.includes(path);
 
   if (isProtectedRoute) {
     const session = await auth.api.getSession({
@@ -21,12 +19,12 @@ export async function proxy(req: NextRequest) {
     }
   }
 
-  if (isPublicRoute) {
+  if (path === "/login") {
     const session = await auth.api.getSession({
       headers: req.headers,
     });
 
-    if (session && !path.startsWith("/dashboard")) {
+    if (session) {
       return NextResponse.redirect(new URL("/dashboard", req.nextUrl));
     }
   }
