@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Inter } from "next/font/google";
-import { Agentation } from "agentation";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
@@ -18,7 +17,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "CodeNight Starter",
   description:
-    "Starter kit Next.js 16 yang ringan dengan Better Auth, Prisma, dan UploadThing",
+    "A starter template for building a full-stack application with Next.js, Prisma, and UploadThing. It includes authentication, file uploads, and a dashboard layout.",
 };
 
 export default function RootLayout({
@@ -32,7 +31,6 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
-        {process.env.NODE_ENV === "development" && <Agentation />}
       </body>
     </html>
   );

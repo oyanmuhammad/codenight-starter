@@ -18,7 +18,6 @@
     "@prisma/adapter-neon": "^7.4.0",
     "@prisma/client": "^7.4.0",
     "@uploadthing/react": "^7.3.3",
-    "agentation": "^2.2.1",
     "bcrypt": "^6.0.0",
     "better-auth": "^1.4.18",
     "class-variance-authority": "^0.7.1",

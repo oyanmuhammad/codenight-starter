@@ -5,7 +5,9 @@ import { headers } from "next/headers";
 
 const f = createUploadthing();
 
+// UploadThing file router with authentication middleware
 export const uploadRouter = {
+  // Image upload: max 4MB, requires authentication
   imageUploader: f({
     image: {
       maxFileSize: "4MB",
@@ -23,6 +25,7 @@ export const uploadRouter = {
       return { uploadedBy: metadata.userId, url: file.ufsUrl };
     }),
 
+  // File upload: max 16MB, requires authentication
   fileUploader: f({
     blob: {
       maxFileSize: "16MB",

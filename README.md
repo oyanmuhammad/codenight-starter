@@ -1,63 +1,65 @@
 # 🚀 CodeNight Starter
 
-> **Starter kit Next.js 16 yang super ringan dan siap pakai!** Tanpa bloat, tanpa konfigurasi ribet, siap coding!
+> **Lightweight, production-ready Next.js 16 starter kit!** No bloat, no complicated config, ready to code!
 
-Menggunakan stack modern pilihan dengan konfigurasi yang rapi dan mengikuti standar best practice terbaru. Siap membantu Anda membangun aplikasi web full-stack yang cepat, aman, dan scalable sejak awal. Happy coding! 🎉
+🌐 **Languages:** [English](README.md) | [Bahasa Indonesia](README.id.md)
 
-## ✨ Fitur Unggulan
+Using modern stack of choice with clean configuration and following the latest best practice standards. Ready to help you build fast, secure, and scalable full-stack web applications from the start. Happy coding! 🎉
 
-- ⚡ **Next.js 16** - App Router terbaru dengan Server Actions dan `cacheComponents: true`
-- 🔐 **Better Auth 1.4** - Autentikasi modern dengan bcrypt password hashing
-- 🗄️ **Prisma 7** - ORM terbaik dengan Neon PostgreSQL adapter
-- 📤 **UploadThing 7** - Upload file/gambar dengan CDN otomatis
-- 🎨 **Tailwind CSS v4** - CSS-first configuration yang lebih cepat
-- 🎭 **shadcn/ui** - Komponen UI yang indah dan accessible
-- 📝 **TypeScript 5** - Full type-safety di seluruh codebase
-- 🏃 **Bun** - Package manager super cepat
+## ✨ Highlights
 
-## 📦 Apa Aja yang Udah Ada?
+- ⚡ **Next.js 16** - Latest App Router with Server Actions and `cacheComponents: true`
+- 🔐 **Better Auth 1.4** - Modern authentication with bcrypt password hashing
+- 🗄️ **Prisma 7** - Best ORM with Neon PostgreSQL adapter
+- 📤 **UploadThing 7** - File/image uploads with automatic CDN
+- 🎨 **Tailwind CSS v4** - CSS-first configuration that's faster
+- 🎭 **shadcn/ui** - Beautiful and accessible UI components
+- 📝 **TypeScript 5** - Full type-safety across the entire codebase
+- 🏃 **Bun** - Super fast package manager
 
-Starter kit ini sudah dilengkapi dengan:
+## 📦 What's Included?
 
-### Halaman Siap Pakai
-- ✅ **Halaman Landing** (`/`) - Halaman publik dengan panduan quick start
-- ✅ **Halaman Login** (`/login`) - Form login dengan validasi dan error handling
-- ✅ **Dashboard** (`/dashboard`) - Protected route dengan session check
-- ✅ **Upload Demo** - Komponen upload gambar dan file yang sudah jadi
+This starter kit comes pre-configured with:
 
-### Fitur Autentikasi
-- ✅ Email & Password authentication dengan bcrypt hashing
-- ✅ Session management dengan cookie cache
-- ✅ Protected routes dengan proxy.ts (Next.js 16)
-- ✅ Auto redirect untuk authenticated/unauthenticated users
-- ✅ Database seed script untuk admin user
+### Ready-to-use Pages
+- ✅ **Landing Page** (`/`) - Public page with quick start guide
+- ✅ **Login Page** (`/login`) - Login form with validation and error handling
+- ✅ **Dashboard** (`/dashboard`) - Protected route with session check
+- ✅ **Upload Demo** - Pre-built image and file upload components
+
+### Authentication Features
+- ✅ Email & password authentication with bcrypt hashing
+- ✅ Session management with cookie cache
+- ✅ Protected routes with proxy.ts (Next.js 16)
+- ✅ Auto redirect for authenticated/unauthenticated users
+- ✅ Database seed script for admin user
 
 ### Database & ORM
-- ✅ Prisma schema dengan Better Auth best practice
-- ✅ User, Session, Account, dan Verification models
-- ✅ PrismaNeon adapter untuk Neon PostgreSQL
-- ✅ Migrations dan seeding sudah dikonfigurasi
+- ✅ Prisma schema following Better Auth best practice
+- ✅ User, Session, Account, and Verification models
+- ✅ PrismaNeon adapter for Neon PostgreSQL
+- ✅ Migrations and seeding pre-configured
 
 ### File Upload
-- ✅ UploadThing integration dengan route handlers
-- ✅ Image upload (max 4MB) dengan preview
-- ✅ File upload (max 16MB) untuk berbagai tipe
-- ✅ Client components dengan progress feedback
+- ✅ UploadThing integration with route handlers
+- ✅ Image upload (max 4MB) with preview
+- ✅ File upload (max 16MB) for various types
+- ✅ Client components with progress feedback
 
-## 📁 Struktur Folder
+## 📁 Folder Structure
 
 ```
 codenight-starter/
 ├── app/                          # Next.js App Router
-│   ├── (public)/                 # Public routes (tidak perlu login)
-│   │   ├── layout.tsx            # Layout untuk halaman publik
+│   ├── (public)/                 # Public routes (no login required)
+│   │   ├── layout.tsx            # Layout for public pages
 │   │   ├── page.tsx              # Landing page
-│   │   └── login/                # Halaman login
+│   │   └── login/                # Login page
 │   │       └── page.tsx
-│   ├── (dashboard)/              # Protected routes (harus login)
-│   │   ├── layout.tsx            # Layout dengan header dan auth check
-│   │   ├── logout-button.tsx    # Component tombol logout
-│   │   └── dashboard/            # Halaman dashboard
+│   ├── (dashboard)/              # Protected routes (login required)
+│   │   ├── layout.tsx            # Layout with header and auth check
+│   │   ├── logout-button.tsx     # Logout button component
+│   │   └── dashboard/            # Dashboard page
 │   │       └── page.tsx
 │   ├── api/                      # API Routes
 │   │   ├── auth/[...all]/        # Better Auth endpoints
@@ -73,10 +75,10 @@ codenight-starter/
 │   │   ├── card.tsx
 │   │   ├── input.tsx
 │   │   ├── label.tsx
-│   │   └── ...                   # Dan banyak lagi
+│   │   └── ...                   # And many more
 │   └── upload/                   # Upload components
-│       ├── ImageUpload.tsx       # Component upload gambar
-│       └── FileUpload.tsx        # Component upload file
+│       ├── ImageUpload.tsx       # Image upload component
+│       └── FileUpload.tsx        # File upload component
 │
 ├── lib/                          # Core utilities and configs
 │   ├── auth.ts                   # Better Auth config (server)
@@ -84,7 +86,7 @@ codenight-starter/
 │   ├── env.ts                    # Environment validation
 │   ├── prisma.ts                 # Prisma client singleton
 │   ├── uploadthing.ts            # UploadThing router config
-│   ├── uploadthing-client.ts    # UploadThing client helpers
+│   ├── uploadthing-client.ts     # UploadThing client helpers
 │   └── utils.ts                  # Utility functions
 │
 ├── prisma/                       # Prisma files
@@ -102,32 +104,56 @@ codenight-starter/
 └── .env.example                  # Template environment variables
 ```
 
-## 🎯 Penjelasan Folder Utama
+## 🎯 Main Folders Explained
 
 ### `app/`
-Folder utama Next.js App Router. Dibagi menjadi route groups:
-- **(public)** - Routes yang bisa diakses tanpa login
-- **(dashboard)** - Routes yang memerlukan autentikasi
-- **api/** - API endpoints untuk auth dan upload
+Main Next.js App Router folder. Divided into route groups:
+- **(public)** - Routes accessible without login
+- **(dashboard)** - Routes requiring authentication
+- **api/** - API endpoints for auth and uploads
 
 ### `components/`
-Komponen React reusable:
-- **ui/** - shadcn/ui components dengan radix-nova style
-- **upload/** - Komponen khusus untuk upload file/gambar
+Reusable React components:
+- **ui/** - shadcn/ui components with radix-nova style
+- **upload/** - Special components for file/image uploads
 
 ### `lib/`
-Core logic dan konfigurasi:
-- **auth.ts** - Konfigurasi Better Auth dengan bcrypt
-- **prisma.ts** - Singleton Prisma client dengan Neon adapter
-- **uploadthing.ts** - File router untuk upload handling
-- **env.ts** - Validasi environment variables
+Core logic and configuration:
+- **auth.ts** - Better Auth configuration with bcrypt
+- **prisma.ts** - Singleton Prisma client with Neon adapter
+- **uploadthing.ts** - File router for upload handling
+- **env.ts** - Environment variables validation
 
 ### `prisma/`
-Database schema dan seeding:
-- **schema.prisma** - Model database (user, session, account, verification)
-- **seed.ts** - Script untuk membuat admin user default
+Database schema and seeding:
+- **schema.prisma** - Database models (user, session, account, verification)
+- **seed.ts** - Script to create default admin user
 
-## 🚀 Cara Setup
+## 🚀 Setup Guide
+
+### 0️⃣ Install Bun (if not already installed)
+
+This starter uses **Bun** as the package manager. Install it first:
+
+**On macOS/Linux:**
+```bash
+curl -fsSL https://bun.sh/install | bash
+```
+
+**On Windows (PowerShell):**
+```powershell
+powershell -c "irm bun.sh/install.ps1 | iex"
+```
+
+**Or using npm:**
+```bash
+npm install -g bun
+```
+
+Verify installation:
+```bash
+bun --version
+```
 
 ### 1️⃣ Clone & Install
 
@@ -139,36 +165,36 @@ bun install
 
 ### 2️⃣ Setup Environment Variables
 
-Copy `.env.example` menjadi `.env` dan isi dengan kredensial Anda:
+Copy `.env.example` to `.env` and fill in your credentials:
 
 ```bash
 cp .env.example .env
 ```
 
-**Isi file `.env`:**
+**Fill in the `.env` file:**
 
 ```env
 # Database - Neon PostgreSQL connection string
 DATABASE_URL=postgresql://user:password@host/database
 
-# Admin User - Untuk database seeding
+# Admin User - For database seeding
 ADMIN_EMAIL=admin@example.com
 ADMIN_PASSWORD=your-secure-password
 
-# Better Auth - Generate dengan: openssl rand -base64 32
+# Better Auth - Generate with: openssl rand -base64 32
 BETTER_AUTH_SECRET=your-super-secret-key-here
 BETTER_AUTH_URL=http://localhost:3000
 NEXT_PUBLIC_APP_URL=http://localhost:3000
 
-# UploadThing - Dapatkan dari https://uploadthing.com/dashboard
+# UploadThing - Get from https://uploadthing.com/dashboard
 UPLOADTHING_TOKEN=your-uploadthing-token
 ```
 
-**Cara dapat kredensial:**
+**How to get credentials:**
 
-- **DATABASE_URL**: Buat database di [Neon](https://neon.tech) (gratis)
-- **BETTER_AUTH_SECRET**: Generate dengan `openssl rand -base64 32`
-- **UPLOADTHING_TOKEN**: Daftar di [UploadThing](https://uploadthing.com) dan buat app baru
+- **DATABASE_URL**: Create database at [Neon](https://neon.tech) (free)
+- **BETTER_AUTH_SECRET**: Generate with `openssl rand -base64 32`
+- **UPLOADTHING_TOKEN**: Sign up at [UploadThing](https://uploadthing.com) and create a new app
 
 ### 3️⃣ Setup Database
 
@@ -176,74 +202,74 @@ UPLOADTHING_TOKEN=your-uploadthing-token
 # Generate Prisma Client
 bun run db:generate
 
-# Jalankan migrations (buat tabel di database)
+# Run migrations (create tables in database)
 bun run db:migrate
 
-# Seed database dengan admin user
+# Seed database with admin user
 bun run db:seed
 ```
 
-### 4️⃣ Jalankan Development Server
+### 4️⃣ Run Development Server
 
 ```bash
 bun run dev
 ```
 
-Buka [http://localhost:3000](http://localhost:3000) - aplikasi sudah jalan! 🎉
+Open [http://localhost:3000](http://localhost:3000) - your app is running! 🎉
 
 ### 5️⃣ Login
 
-- Buka [http://localhost:3000/login](http://localhost:3000/login)
-- Login dengan email & password yang Anda set di `.env`
-- Akan redirect ke dashboard otomatis
+- Open [http://localhost:3000/login](http://localhost:3000/login)
+- Login with email & password you set in `.env`
+- Auto redirect to dashboard
 
 ## 🛠️ Available Scripts
 
 ```bash
-bun run dev          # Jalankan development server
-bun run build        # Build untuk production
-bun run start        # Jalankan production server
-bun run lint         # Jalankan ESLint
-bun run typecheck    # Jalankan TypeScript type checking
+bun run dev          # Run development server
+bun run build        # Build for production
+bun run start        # Run production server
+bun run lint         # Run ESLint
+bun run typecheck    # Run TypeScript type checking
 
 bun run db:generate  # Generate Prisma Client
-bun run db:migrate   # Jalankan database migrations
-bun run db:seed      # Seed database dengan admin user
-bun run db:studio    # Buka Prisma Studio (GUI database)
+bun run db:migrate   # Run database migrations
+bun run db:seed      # Seed database with admin user
+bun run db:studio    # Open Prisma Studio (database GUI)
 ```
 
-## 🎨 Kustomisasi
+## 🎨 Customization
 
-### Ubah Tema Warna
+### Change Theme Colors
 
-Edit `app/globals.css` untuk mengubah color scheme:
+Edit `app/globals.css` to change the color scheme:
 
 ```css
 @layer theme {
   :root {
     --color-background: 0 0% 100%;
     --color-foreground: 240 10% 3.9%;
-    /* Ubah warna lainnya di sini */
+    /* Change other colors here */
   }
 }
 ```
 
-### Tambah Model Database
+### Add Database Model
 
 1. Edit `prisma/schema.prisma`
-2. Jalankan `bun run db:migrate`
-3. Prisma akan generate TypeScript types otomatis
+2. Run `bun run db:migrate`
+3. Prisma will automatically generate TypeScript types
 
-### Tambah Upload Route Baru
+### Add New Upload Route
 
-Edit `lib/uploadthing.ts` dan tambahkan route baru:
+Edit `lib/uploadthing.ts` and add a new route:
 
 ```ts
 export const uploadRouter = {
-  // Route yang sudah ada
+  // Existing routes
   imageUploader: f({ image: { maxFileSize: "4MB" } })...
   
-  // Route baru
+  // New route
   videoUploader: f({ video: { maxFileSize: "64MB" } })
     .middleware(async () => {
       const session = await auth.api.getSession({ headers: await headers() });
@@ -256,23 +282,23 @@ export const uploadRouter = {
 };
 ```
 
-## 🔐 Keamanan
+## 🔐 Security
 
-Starter ini sudah dikonfigurasi dengan best practice security:
+This starter is configured with security best practices:
 
 - ✅ **bcrypt** password hashing (10 rounds)
 - ✅ **CSRF protection** via Better Auth
-- ✅ **Session cookies** dengan HttpOnly flag
-- ✅ **Environment validation** di runtime
+- ✅ **Session cookies** with HttpOnly flag
+- ✅ **Environment validation** at runtime
 - ✅ **Type-safe** database queries
-- ✅ **Protected routes** dengan proxy.ts
+- ✅ **Protected routes** with proxy.ts
 
 ## 📚 Tech Stack Details
 
 | Technology | Version | Purpose |
 |------------|---------|---------|
-| Next.js | 16.1.6 | React framework dengan App Router |
-| React | 19.2.3 | UI library terbaru |
+| Next.js | 16.1.6 | React framework with App Router |
+| React | 19.2.3 | Modern UI library |
 | TypeScript | 5.x | Type safety |
 | Prisma | 7.4.0 | Database ORM |
 | Better Auth | 1.4.18 | Authentication |
@@ -282,16 +308,16 @@ Starter ini sudah dikonfigurasi dengan best practice security:
 | Bun | Latest | Package manager & runtime |
 | bcrypt | 6.0.0 | Password hashing |
 
-## 🔥 Kenapa Starter Ini?
+## 🔥 Why This Starter?
 
-- **Ringan**: Hanya library yang benar-benar dipakai
-- **Modern**: Semua library versi terbaru (2026)
-- **No Bloat**: Tanpa konfigurasi yang tidak perlu
-- **Best Practice**: Ikuti official docs dari setiap library
-- **Type-Safe**: 100% TypeScript dengan strict mode
-- **Production Ready**: Siap deploy ke Vercel/Netlify
+- **Lightweight**: Only libraries that are truly needed
+- **Modern**: All libraries at their latest versions (2026)
+- **No Bloat**: Without unnecessary configuration
+- **Best Practices**: Following official docs from each library
+- **Type-Safe**: 100% TypeScript with strict mode
+- **Production Ready**: Ready to deploy on Vercel/Netlify
 - **Developer Experience**: Auto-reload, error overlay, type hints
-- **Documented**: Semua file ada penjelasannya
+- **Documented**: Every file is well-explained
 
 ## 🚨 Troubleshooting
 
@@ -301,26 +327,26 @@ bun run db:generate
 ```
 
 ### Error: `Environment variable not found`
-Pastikan semua env vars di `.env.example` sudah diisi di `.env`
+Make sure all env vars from `.env.example` are filled in `.env`
 
-### Error: Upload gagal
-- Cek `UPLOADTHING_TOKEN` sudah benar
-- Pastikan ukuran file tidak melebihi limit
+### Error: Upload failed
+- Check `UPLOADTHING_TOKEN` is correct
+- Make sure file size doesn't exceed the limit
 
 ### Error: Login redirect loop
-- Clear cookies browser
-- Cek `BETTER_AUTH_URL` dan `NEXT_PUBLIC_APP_URL` sama
+- Clear browser cookies
+- Check `BETTER_AUTH_URL` and `NEXT_PUBLIC_APP_URL` are the same
 
 ## 📄 License
 
-MIT - Bebas digunakan untuk project apapun!
+MIT - Free to use for any project!
 
 ## 🤝 Contributing
 
-Contributions, issues, dan feature requests sangat diterima!
+Contributions, issues, and feature requests are very welcome!
 
 ---
 
 **Happy Coding!** 🎉
 
-Dibuat dengan ❤️ untuk komunitas developer Indonesia. Semoga starter kit ini membantu kamu membangun aplikasi web yang keren dengan Next.js 16 dan stack modern lainnya! 🚀
+Built with ❤️ for the developer community. Hope this starter kit helps you build amazing web applications with Next.js 16 and the latest modern stack! 🚀

@@ -39,7 +39,7 @@ export function ImageUpload() {
 
   return (
     <div className="space-y-3">
-      <p className="text-sm font-medium">Upload Gambar</p>
+      <p className="text-sm font-medium">Upload Image</p>
       <input
         ref={inputRef}
         type="file"
@@ -48,14 +48,14 @@ export function ImageUpload() {
         onChange={handleChange}
       />
       <Button variant="outline" onClick={handleSelect} disabled={uploading}>
-        {uploading ? "Mengupload..." : "Pilih Gambar"}
+        {uploading ? "Uploading..." : "Choose Image"}
       </Button>
       {error && <p className="text-sm text-destructive">{error}</p>}
       {imageUrl && (
         <div className="space-y-2">
           <Image
             src={imageUrl}
-            alt="Gambar yang diupload"
+            alt="Uploaded image"
             width={300}
             height={200}
             className="rounded-md border object-cover"

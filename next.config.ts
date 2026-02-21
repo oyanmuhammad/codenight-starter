@@ -3,7 +3,13 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   cacheComponents: true,
   images: {
-    remotePatterns: [new URL("https://*.ufs.sh/f/**")],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "*.ufs.sh",
+        pathname: "/f/*",
+      },
+    ],
   },
 };
 

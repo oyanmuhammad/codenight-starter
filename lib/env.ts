@@ -1,3 +1,4 @@
+// Validate required environment variables at runtime
 const requiredEnvVars = [
   "DATABASE_URL",
   "ADMIN_EMAIL",

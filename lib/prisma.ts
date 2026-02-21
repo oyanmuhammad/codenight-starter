@@ -1,3 +1,4 @@
+// Prisma client singleton with Neon adapter
 import { PrismaClient } from "@/generated/prisma/client";
 import { PrismaNeon } from "@prisma/adapter-neon";
 

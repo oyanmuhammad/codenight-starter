@@ -1,3 +1,4 @@
+// Client-side helpers for UploadThing integration
 import {
   generateUploadButton,
   generateUploadDropzone,

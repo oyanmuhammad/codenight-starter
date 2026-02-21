@@ -33,13 +33,13 @@ export default function LoginPage() {
       });
 
       if (result.error) {
-        setError(result.error.message ?? "Login gagal");
+        setError(result.error.message ?? "Login failed");
         return;
       }
 
       router.push("/dashboard");
     } catch {
-      setError("Terjadi kesalahan yang tidak terduga");
+      setError("An unexpected error occurred");
     } finally {
       setLoading(false);
     }
@@ -48,8 +48,8 @@ export default function LoginPage() {
   return (
     <Card className="w-full max-w-md mx-auto">
       <CardHeader>
-        <CardTitle className="text-2xl">Masuk</CardTitle>
-        <CardDescription>Masuk untuk mengakses dashboard</CardDescription>
+        <CardTitle className="text-2xl">Sign In</CardTitle>
+        <CardDescription>Sign in to access your dashboard</CardDescription>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -65,7 +65,7 @@ export default function LoginPage() {
             />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="password">Kata Sandi</Label>
+            <Label htmlFor="password">Password</Label>
             <Input
               id="password"
               type="password"
@@ -77,7 +77,7 @@ export default function LoginPage() {
           </div>
           {error && <p className="text-sm text-destructive">{error}</p>}
           <Button type="submit" className="w-full" disabled={loading}>
-            {loading ? "Sedang masuk..." : "Masuk"}
+            {loading ? "Signing in..." : "Sign In"}
           </Button>
         </form>
       </CardContent>

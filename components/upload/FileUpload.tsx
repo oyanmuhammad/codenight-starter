@@ -48,7 +48,7 @@ export function FileUpload() {
         onChange={handleChange}
       />
       <Button variant="outline" onClick={handleSelect} disabled={uploading}>
-        {uploading ? "Mengupload..." : "Pilih File"}
+        {uploading ? "Uploading..." : "Choose File"}
       </Button>
       {error && <p className="text-sm text-destructive">{error}</p>}
       {fileName && fileUrl && (
