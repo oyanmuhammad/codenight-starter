@@ -1,7 +1,7 @@
 import "dotenv/config";
 import { PrismaClient } from "../generated/prisma/client";
 import { PrismaNeon } from "@prisma/adapter-neon";
-import bcrypt from "bcrypt";
+import { auth } from "../lib/auth";
 
 const adapter = new PrismaNeon({
   connectionString: process.env.DATABASE_URL!,
@@ -22,24 +22,15 @@ async function main() {
     return;
   }
 
-  const passwordHash = await bcrypt.hash(password, 10);
-
-  const user = await prisma.user.create({
-    data: {
+  const passwordHash = await auth.api.signUpEmail({
+    body: {
       email,
+      password,
       name: "Admin",
-      emailVerified: true,
-      accounts: {
-        create: {
-          accountId: email,
-          providerId: "credential",
-          password: passwordHash,
-        },
-      },
     },
   });
 
-  console.log(`Admin user created: ${user.email}`);
+  console.log(`Admin user created: ${passwordHash.user.email}`);
 }
 
 main()

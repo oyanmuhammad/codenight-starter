@@ -9,7 +9,7 @@ Menggunakan stack modern pilihan dengan konfigurasi yang rapi dan mengikuti stan
 ## ✨ Fitur Unggulan
 
 - ⚡ **Next.js 16** - App Router terbaru dengan Server Actions dan `cacheComponents: true`
-- 🔐 **Better Auth 1.4** - Autentikasi modern dengan bcrypt password hashing
+- 🔐 **Better Auth 1.4** - Autentikasi modern dengan built-in Argon2/scrypt password hashing dan dukungan multi-session
 - 🗄️ **Prisma 7** - ORM terbaik dengan Neon PostgreSQL adapter
 - 📤 **UploadThing 7** - Upload file/gambar dengan CDN otomatis
 - 🎨 **Tailwind CSS v4** - CSS-first configuration yang lebih cepat
@@ -28,7 +28,9 @@ Starter kit ini sudah dilengkapi dengan:
 - ✅ **Upload Demo** - Komponen upload gambar dan file yang sudah jadi
 
 ### Fitur Autentikasi
-- ✅ Email & Password authentication dengan bcrypt hashing
+- ✅ Email & Password authentication dengan Better Auth native hashing
+- ✅ Multiple concurrent sessions (multiSession plugin)
+- ✅ Cross-origin support dengan CORS headers
 - ✅ Session management dengan cookie cache
 - ✅ Protected routes dengan proxy.ts (Next.js 16)
 - ✅ Auto redirect untuk authenticated/unauthenticated users
@@ -119,7 +121,7 @@ Komponen React reusable:
 
 ### `lib/`
 Core logic dan konfigurasi:
-- **auth.ts** - Konfigurasi Better Auth dengan bcrypt
+- **auth.ts** - Konfigurasi Better Auth dengan native hashing dan multiSession
 - **prisma.ts** - Singleton Prisma client dengan Neon adapter
 - **uploadthing.ts** - File router untuk upload handling
 - **env.ts** - Validasi environment variables
@@ -286,7 +288,7 @@ export const uploadRouter = {
 
 Starter ini sudah dikonfigurasi dengan best practice security:
 
-- ✅ **bcrypt** password hashing (10 rounds)
+- ✅ **Better Auth native hashing** (Argon2/scrypt, built-in)
 - ✅ **CSRF protection** via Better Auth
 - ✅ **Session cookies** dengan HttpOnly flag
 - ✅ **Environment validation** di runtime
@@ -301,12 +303,11 @@ Starter ini sudah dikonfigurasi dengan best practice security:
 | React | 19.2.3 | UI library terbaru |
 | TypeScript | 5.x | Type safety |
 | Prisma | 7.4.0 | Database ORM |
-| Better Auth | 1.4.18 | Authentication |
+| Better Auth | 1.4.18 | Authentication dengan native hashing |
 | UploadThing | 7.7.4 | File uploads & CDN |
 | Tailwind CSS | 4.x | Utility-first CSS |
 | shadcn/ui | Latest | UI components |
 | Bun | Latest | Package manager & runtime |
-| bcrypt | 6.0.0 | Password hashing |
 
 ## 🔥 Kenapa Starter Ini?
 
@@ -336,6 +337,37 @@ Pastikan semua env vars di `.env.example` sudah diisi di `.env`
 ### Error: Login redirect loop
 - Clear cookies browser
 - Cek `BETTER_AUTH_URL` dan `NEXT_PUBLIC_APP_URL` sama
+
+## 🛠️ Troubleshooting: Error Cross-Origin Dev
+
+### Blocked cross-origin request dari 192.168.x.x atau localhost
+
+Jika muncul error seperti:
+
+> Blocked cross-origin request from 192.168.x.x to /_next/* resource. To allow this, configure "allowedDevOrigins" in next.config
+
+**Solusi:**
+- Buka `next.config.ts` dan pastikan `allowedDevOrigins` berisi:
+  - `localhost`
+  - `localhost:3000`
+  - `127.0.0.1`
+  - `127.0.0.1:3000`
+  - Ip Local LAN misal `192.168.1.12` lihat `network` saat menjalankan `bun run dev` di terminal untuk mengtahui IP LAN lokal Anda
+- Restart dev server setelah mengedit config.
+- Jika dev server berjalan di port lain (misal 3001), tambahkan port tersebut ke daftar.
+
+**Contoh config:**
+```typescript
+allowedDevOrigins: [
+  "localhost",
+  "localhost:3000",
+  "127.0.0.1",
+  "127.0.0.1:3000",
+  "192.168.1.12" // IP LAN lokal yang didapat dari network saat menjalankan dev server
+]
+```
+
+Ini memastikan device lokal dan IP LAN bisa akses Next.js dev server tanpa error CORS.
 
 ## 📄 License
 

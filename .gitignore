@@ -47,3 +47,6 @@ next-env.d.ts
 
 # prisma migrations
 /prisma/migrations
+
+# claude
+.claude

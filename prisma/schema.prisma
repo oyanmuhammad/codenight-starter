@@ -8,15 +8,16 @@ datasource db {
 }
 
 model user {
-    id            String    @id @default(cuid())
-    name          String
-    email         String    @unique
-    emailVerified Boolean   @default(false)
-    image         String?
-    createdAt     DateTime  @default(now())
-    updatedAt     DateTime  @updatedAt
-    sessions      session[]
-    accounts      account[]
+    id             String          @id @default(cuid())
+    name           String
+    email          String          @unique
+    emailVerified  Boolean         @default(false)
+    image          String?
+    createdAt      DateTime        @default(now())
+    updatedAt      DateTime        @updatedAt
+    sessions       session[]
+    accounts       account[]
+    deviceSessions deviceSession[]
 }
 
 model session {
@@ -61,4 +62,16 @@ model verification {
     updatedAt  DateTime @updatedAt
 
     @@index([identifier])
+}
+
+model deviceSession {
+    id        String   @id @default(cuid())
+    sessionId String
+    userId    String
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+    user      user     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+    @@index([userId])
+    @@index([sessionId])
 }

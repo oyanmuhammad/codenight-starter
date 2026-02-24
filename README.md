@@ -9,7 +9,7 @@ Using modern stack of choice with clean configuration and following the latest b
 ## ✨ Highlights
 
 - ⚡ **Next.js 16** - Latest App Router with Server Actions and `cacheComponents: true`
-- 🔐 **Better Auth 1.4** - Modern authentication with bcrypt password hashing
+- 🔐 **Better Auth 1.4** - Modern authentication with built-in Argon2/scrypt password hashing and multi-session support
 - 🗄️ **Prisma 7** - Best ORM with Neon PostgreSQL adapter
 - 📤 **UploadThing 7** - File/image uploads with automatic CDN
 - 🎨 **Tailwind CSS v4** - CSS-first configuration that's faster
@@ -28,7 +28,9 @@ This starter kit comes pre-configured with:
 - ✅ **Upload Demo** - Pre-built image and file upload components
 
 ### Authentication Features
-- ✅ Email & password authentication with bcrypt hashing
+- ✅ Email & password authentication with Better Auth native hashing
+- ✅ Multiple concurrent sessions (multiSession plugin)
+- ✅ Cross-origin support with CORS headers
 - ✅ Session management with cookie cache
 - ✅ Protected routes with proxy.ts (Next.js 16)
 - ✅ Auto redirect for authenticated/unauthenticated users
@@ -119,7 +121,7 @@ Reusable React components:
 
 ### `lib/`
 Core logic and configuration:
-- **auth.ts** - Better Auth configuration with bcrypt
+- **auth.ts** - Better Auth configuration with native hashing and multiSession
 - **prisma.ts** - Singleton Prisma client with Neon adapter
 - **uploadthing.ts** - File router for upload handling
 - **env.ts** - Environment variables validation
@@ -286,7 +288,7 @@ export const uploadRouter = {
 
 This starter is configured with security best practices:
 
-- ✅ **bcrypt** password hashing (10 rounds)
+- ✅ **Better Auth native hashing** (Argon2/scrypt, built-in)
 - ✅ **CSRF protection** via Better Auth
 - ✅ **Session cookies** with HttpOnly flag
 - ✅ **Environment validation** at runtime
@@ -301,12 +303,11 @@ This starter is configured with security best practices:
 | React | 19.2.3 | Modern UI library |
 | TypeScript | 5.x | Type safety |
 | Prisma | 7.4.0 | Database ORM |
-| Better Auth | 1.4.18 | Authentication |
+| Better Auth | 1.4.18 | Authentication with native hashing |
 | UploadThing | 7.7.4 | File uploads & CDN |
 | Tailwind CSS | 4.x | Utility-first CSS |
 | shadcn/ui | Latest | UI components |
 | Bun | Latest | Package manager & runtime |
-| bcrypt | 6.0.0 | Password hashing |
 
 ## 🔥 Why This Starter?
 
@@ -336,6 +337,37 @@ Make sure all env vars from `.env.example` are filled in `.env`
 ### Error: Login redirect loop
 - Clear browser cookies
 - Check `BETTER_AUTH_URL` and `NEXT_PUBLIC_APP_URL` are the same
+
+## 🛠️ Troubleshooting: Cross-Origin Dev Error
+
+### Blocked cross-origin request from 192.168.x.x or localhost
+
+If you see errors like:
+
+> Blocked cross-origin request from 192.168.x.x to /_next/* resource. To allow this, configure "allowedDevOrigins" in next.config
+
+**Solution:**
+- Open `next.config.ts` and make sure `allowedDevOrigins` includes:
+  - `localhost`
+  - `localhost:3000`
+  - `127.0.0.1`
+  - `127.0.0.1:3000`
+  - For your local LAN IP, for example `192.168.1.12`, check the `network` section when running `bun run dev` in the terminal to find your local LAN IP address.
+- Restart your dev server after editing config.
+- If your dev server runs on a different port (e.g. 3001), add that port to the list.
+
+**Example config:**
+```typescript
+allowedDevOrigins: [
+  "localhost",
+  "localhost:3000",
+  "127.0.0.1",
+  "127.0.0.1:3000",
+  "192.168.1.12" // Local LAN IP obtained from the network when running the dev server
+]
+```
+
+This ensures your local devices and LAN IPs can access the Next.js dev server without CORS errors.
 
 ## 📄 License
 
