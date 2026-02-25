@@ -1,0 +1,10 @@
+blank_issues_enabled: false
+
+contact_links:
+  - name: 💬 Questions & Discussions
+    url: https://github.com/oyanmuhammad/codenight-starter/discussions
+    about: Please ask questions or start discussions here.
+
+  - name: 📖 Documentation
+    url: https://github.com/oyanmuhammad/codenight-starter
+    about: Read the documentation before opening an issue.
