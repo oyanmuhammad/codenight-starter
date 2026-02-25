@@ -10,8 +10,8 @@ Menggunakan stack modern pilihan dengan konfigurasi yang rapi dan mengikuti stan
 
 ## ✨ Fitur Unggulan
 
-- ⚡ **Next.js 16** - App Router terbaru dengan Server Actions dan `cacheComponents: true`
-- 🔐 **Better Auth 1.4** - Autentikasi modern dengan built-in Argon2/scrypt password hashing dan dukungan multi-session
+- ⚡ **Next.js 16** - Fullstack React framework dengan App Router dan server components
+- 🔐 **Better Auth 1.4** - Framework Autentikasi modern
 - 🗄️ **Prisma 7** - ORM terbaik dengan Neon PostgreSQL adapter
 - 📤 **UploadThing 7** - Upload file/gambar dengan CDN otomatis
 - 🎨 **Tailwind CSS v4** - CSS-first configuration yang lebih cepat

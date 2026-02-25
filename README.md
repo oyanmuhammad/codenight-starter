@@ -10,8 +10,8 @@ Using modern stack of choice with clean configuration and following the latest b
 
 ## ✨ Highlights
 
-- ⚡ **Next.js 16** - Latest App Router with Server Actions and `cacheComponents: true`
-- 🔐 **Better Auth 1.4** - Modern authentication with built-in Argon2/scrypt password hashing and multi-session support
+- ⚡ **Next.js 16** - Fullstack React framework with App Router and server components
+- 🔐 **Better Auth 1.4** - Modern authentication framework
 - 🗄️ **Prisma 7** - Best ORM with Neon PostgreSQL adapter
 - 📤 **UploadThing 7** - File/image uploads with automatic CDN
 - 🎨 **Tailwind CSS v4** - CSS-first configuration that's faster
