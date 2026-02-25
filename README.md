@@ -1,5 +1,7 @@
 # 🚀 CodeNight Starter
 
+<img src="public/codenight-starter.png" alt="CodeNight Starter Thumbnail" width="800" style="display:block;margin-bottom:24px;" />
+
 > **Lightweight, production-ready Next.js 16 starter kit!** No bloat, no complicated config, ready to code!
 
 🌐 **Languages:** [English](README.md) | [Bahasa Indonesia](README.id.md)
