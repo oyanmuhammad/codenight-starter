@@ -1,0 +1,52 @@
+name: Feature request
+description: Suggest an idea or improvement for this project
+title: "[Feature]: "
+labels: ["feature"]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for taking the time to suggest a feature.
+        Please provide clear and detailed information so the request can be properly reviewed.
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Feature Summary
+      description: Provide a clear and concise summary of the feature.
+      placeholder: Describe the feature you would like to see.
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem / Motivation
+      description: Explain the problem this feature would solve.
+      placeholder: What limitation or pain point does this address?
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed Solution
+      description: Describe the solution you would like to happen.
+      placeholder: Explain how this feature should behave or work.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: Describe any alternative solutions or approaches you have considered.
+      placeholder: Optional
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context
+      description: Add any references, examples, links, or screenshots.
+      placeholder: Optional
