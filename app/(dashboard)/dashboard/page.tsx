@@ -22,7 +22,7 @@ export default function DashboardPage() {
           </h1>
         </div>
         <div className="rounded-md bg-muted/50 p-3 border border-border/50 w-fit mt-2">
-          <p className="text-sm text-muted-foreground flex items-center gap-2">
+          <p className="text-sm text-muted-foreground flex flex-wrap items-center gap-2">
             <span className="flex h-5 w-5 items-center justify-center rounded-full bg-background border text-xs font-medium">
               i
             </span>
