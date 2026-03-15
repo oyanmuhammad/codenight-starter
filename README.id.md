@@ -11,7 +11,7 @@ Menggunakan stack modern pilihan dengan konfigurasi yang rapi dan mengikuti stan
 ## ✨ Fitur Unggulan
 
 - ⚡ **Next.js 16** - Fullstack React framework dengan App Router dan server components
-- 🔐 **Better Auth 1.5.3** - Framework Autentikasi modern
+- 🔐 **Better Auth 1.5.5** - Framework Autentikasi modern
 - 🗄️ **Prisma 7** - ORM terbaik dengan Neon PostgreSQL adapter
 - 📤 **UploadThing 7** - Upload file/gambar dengan CDN otomatis
 - 🎨 **Tailwind CSS v4** - CSS-first configuration yang lebih cepat
@@ -304,8 +304,8 @@ Starter ini sudah dikonfigurasi dengan best practice security:
 | Next.js | 16.1.6 | React framework dengan App Router |
 | React | 19.2.3 | UI library terbaru |
 | TypeScript | 5.x | Type safety |
-| Prisma | 7.4.2 | Database ORM |
-| Better Auth | 1.5.3 | Authentication dengan native hashing |
+| Prisma | 7.5.0 | Database ORM |
+| Better Auth | 1.5.5 | Authentication dengan native hashing |
 | UploadThing | 7.7.4 | File uploads & CDN |
 | Tailwind CSS | 4.x | Utility-first CSS |
 | shadcn/ui | 3.8.5 | UI components |

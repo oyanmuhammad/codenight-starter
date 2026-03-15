@@ -11,7 +11,7 @@ Using modern stack of choice with clean configuration and following the latest b
 ## ✨ Highlights
 
 - ⚡ **Next.js 16** - Fullstack React framework with App Router and server components
-- 🔐 **Better Auth 1.5.3** - Modern authentication framework
+- 🔐 **Better Auth 1.5.5** - Modern authentication framework
 - 🗄️ **Prisma 7** - Best ORM with Neon PostgreSQL adapter
 - 📤 **UploadThing 7** - File/image uploads with automatic CDN
 - 🎨 **Tailwind CSS v4** - CSS-first configuration that's faster
@@ -304,8 +304,8 @@ This starter is configured with security best practices:
 | Next.js | 16.1.6 | React framework with App Router |
 | React | 19.2.3 | Modern UI library |
 | TypeScript | 5.x | Type safety |
-| Prisma | 7.4.2 | Database ORM |
-| Better Auth | 1.5.3 | Authentication with native hashing |
+| Prisma | 7.5.0 | Database ORM |
+| Better Auth | 1.5.5 | Authentication with native hashing |
 | UploadThing | 7.7.4 | File uploads & CDN |
 | Tailwind CSS | 4.x | Utility-first CSS |
 | shadcn/ui | 3.8.5 | UI components |
