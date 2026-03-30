@@ -301,11 +301,11 @@ Starter ini sudah dikonfigurasi dengan best practice security:
 
 | Technology | Version | Purpose |
 |------------|---------|---------|
-| Next.js | 16.1.6 | React framework dengan App Router |
-| React | 19.2.3 | UI library terbaru |
+| Next.js | 16.x.x | React framework dengan App Router |
+| React | 19.2.4 | UI library terbaru |
 | TypeScript | 5.x | Type safety |
-| Prisma | 7.5.0 | Database ORM |
-| Better Auth | 1.5.5 | Authentication dengan native hashing |
+| Prisma | 7.x.x | Database ORM |
+| Better Auth | 1.5.x | Authentication dengan native hashing |
 | UploadThing | 7.7.4 | File uploads & CDN |
 | Tailwind CSS | 4.x | Utility-first CSS |
 | shadcn/ui | 3.8.5 | UI components |
