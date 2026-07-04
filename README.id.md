@@ -14,13 +14,13 @@ Menggunakan stack modern pilihan dengan konfigurasi yang rapi dan mengikuti stan
 
 ![Preview Halaman Landing](public/preview/homepage.png)
 
-### Dashboard
-
-![Preview Dashboard](public/preview/dashboard.png)
-
 ### Halaman Login
 
 ![Preview Halaman Login](public/preview/login.png)
+
+### Dashboard
+
+![Preview Dashboard](public/preview/dashboard.png)
 
 ### Halaman Upload
 

@@ -14,13 +14,13 @@ Using modern stack of choice with clean configuration and following the latest b
 
 ![Landing Page Preview](public/preview/homepage.png)
 
-### Dashboard
-
-![Dashboard Preview](public/preview/dashboard.png)
-
 ### Login Page
 
 ![Login Page Preview](public/preview/login.png)
+
+### Dashboard
+
+![Dashboard Preview](public/preview/dashboard.png)
 
 ### Upload Page
 
