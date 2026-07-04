@@ -6,7 +6,6 @@ import { prisma } from "./prisma";
 
 // Better Auth configuration with Prisma adapter
 export const auth = betterAuth({
-  baseURL: process.env.BETTER_AUTH_URL,
   trustedOrigins:
     process.env.NODE_ENV === "development"
       ? (request?: Request) => [request?.headers.get("origin") ?? "*"]
@@ -27,7 +26,13 @@ export const auth = betterAuth({
       maxAge: 5 * 60, // 5 minutes
     },
   },
-  plugins: [nextCookies(), multiSession()],
+  plugins: [multiSession(), nextCookies()],
+  rateLimit: {
+    enabled: true,
+    window: 60, // seconds
+    max: 10, // max requests per window per IP
+    storage: "memory",
+  },
   advanced: {
     // Only send cookies over HTTPS in production
     useSecureCookies: process.env.NODE_ENV === "production",
