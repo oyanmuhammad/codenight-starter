@@ -8,15 +8,33 @@
 
 Menggunakan stack modern pilihan dengan konfigurasi yang rapi dan mengikuti standar best practice terbaru. Siap membantu Anda membangun aplikasi web full-stack yang cepat, aman, dan scalable sejak awal. Happy coding! 🎉
 
+## 📸 Preview
+
+### Halaman Landing
+
+![Preview Halaman Landing](public/preview/homepage.png)
+
+### Dashboard
+
+![Preview Dashboard](public/preview/dashboard.png)
+
+### Halaman Login
+
+![Preview Halaman Login](public/preview/login.png)
+
+### Halaman Upload
+
+![Preview Halaman Upload](public/preview/upload-page.png)
+
 ## ✨ Fitur Unggulan
 
-- ⚡ **Next.js 16** - Fullstack React framework dengan App Router dan server components
-- 🔐 **Better Auth 1.5.5** - Framework Autentikasi modern
-- 🗄️ **Prisma 7** - ORM terbaik dengan Neon PostgreSQL adapter
-- 📤 **UploadThing 7** - Upload file/gambar dengan CDN otomatis
-- 🎨 **Tailwind CSS v4** - CSS-first configuration yang lebih cepat
+- ⚡ **Next.js** - Fullstack React framework dengan App Router dan server components
+- 🔐 **Better Auth** - Framework Autentikasi modern
+- 🗄️ **Prisma** - ORM terbaik dengan Neon PostgreSQL adapter
+- 📤 **UploadThing** - Upload file/gambar dengan CDN otomatis
+- 🎨 **Tailwind CSS** - CSS-first configuration yang lebih cepat
 - 🎭 **shadcn/ui** - Komponen UI yang indah dan accessible
-- 📝 **TypeScript 5** - Full type-safety di seluruh codebase
+- 📝 **TypeScript** - Full type-safety di seluruh codebase
 - 🏃 **Bun** - Package manager super cepat
 
 ## 📦 Apa Aja yang Udah Ada?
@@ -24,12 +42,14 @@ Menggunakan stack modern pilihan dengan konfigurasi yang rapi dan mengikuti stan
 Starter kit ini sudah dilengkapi dengan:
 
 ### Halaman Siap Pakai
+
 - ✅ **Halaman Landing** (`/`) - Halaman publik dengan panduan quick start
 - ✅ **Halaman Login** (`/login`) - Form login dengan validasi dan error handling
 - ✅ **Dashboard** (`/dashboard`) - Protected route dengan session check
 - ✅ **Upload Demo** - Komponen upload gambar dan file yang sudah jadi
 
 ### Fitur Autentikasi
+
 - ✅ Email & Password authentication dengan Better Auth native hashing
 - ✅ Multiple concurrent sessions (multiSession plugin)
 - ✅ Cross-origin support dengan CORS headers
@@ -39,12 +59,14 @@ Starter kit ini sudah dilengkapi dengan:
 - ✅ Database seed script untuk admin user
 
 ### Database & ORM
+
 - ✅ Prisma schema dengan Better Auth best practice
 - ✅ User, Session, Account, dan Verification models
 - ✅ PrismaNeon adapter untuk Neon PostgreSQL
 - ✅ Migrations dan seeding sudah dikonfigurasi
 
 ### File Upload
+
 - ✅ UploadThing integration dengan route handlers
 - ✅ Image upload (max 4MB) dengan preview
 - ✅ File upload (max 16MB) untuk berbagai tipe
@@ -61,9 +83,13 @@ codenight-starter/
 │   │   └── login/                # Halaman login
 │   │       └── page.tsx
 │   ├── (dashboard)/              # Protected routes (harus login)
-│   │   ├── layout.tsx            # Layout dengan header dan auth check
+│   │   ├── layout.tsx            # Layout dengan sidebar, header & auth check
 │   │   ├── logout-button.tsx     # Component tombol logout
-│   │   └── dashboard/            # Halaman dashboard
+│   │   ├── mobile-sidebar.tsx    # Sidebar responsif untuk mobile
+│   │   ├── nav-links.tsx         # Tautan navigasi sidebar
+│   │   ├── dashboard/            # Halaman dashboard
+│   │   │   └── page.tsx
+│   │   └── upload/               # Halaman upload
 │   │       └── page.tsx
 │   ├── api/                      # API Routes
 │   │   ├── auth/[...all]/        # Better Auth endpoints
@@ -81,8 +107,8 @@ codenight-starter/
 │   │   ├── label.tsx
 │   │   └── ...                   # Dan banyak lagi
 │   └── upload/                   # Upload components
-│       ├── ImageUpload.tsx       # Component upload gambar
-│       └── FileUpload.tsx        # Component upload file
+│       ├── ImageUpload.tsx       # Dropzone upload gambar
+│       └── FileUpload.tsx        # Dropzone upload file
 │
 ├── lib/                          # Core utilities and configs
 │   ├── auth.ts                   # Better Auth config (server)
@@ -111,25 +137,33 @@ codenight-starter/
 ## 🎯 Penjelasan Folder Utama
 
 ### `app/`
+
 Folder utama Next.js App Router. Dibagi menjadi route groups:
+
 - **(public)** - Routes yang bisa diakses tanpa login
 - **(dashboard)** - Routes yang memerlukan autentikasi
 - **api/** - API endpoints untuk auth dan upload
 
 ### `components/`
+
 Komponen React reusable:
+
 - **ui/** - shadcn/ui components dengan radix-nova style
 - **upload/** - Komponen khusus untuk upload file/gambar
 
 ### `lib/`
+
 Core logic dan konfigurasi:
+
 - **auth.ts** - Konfigurasi Better Auth dengan native hashing dan multiSession
 - **prisma.ts** - Singleton Prisma client dengan Neon adapter
 - **uploadthing.ts** - File router untuk upload handling
 - **env.ts** - Validasi environment variables
 
 ### `prisma/`
+
 Database schema dan seeding:
+
 - **schema.prisma** - Model database (user, session, account, verification)
 - **seed.ts** - Script untuk membuat admin user default
 
@@ -140,21 +174,25 @@ Database schema dan seeding:
 Starter ini menggunakan **Bun** sebagai package manager. Install terlebih dahulu:
 
 **Di macOS/Linux:**
+
 ```bash
 curl -fsSL https://bun.sh/install | bash
 ```
 
 **Di Windows (PowerShell):**
+
 ```powershell
 powershell -c "irm bun.sh/install.ps1 | iex"
 ```
 
 **Atau menggunakan npm:**
+
 ```bash
 npm install -g bun
 ```
 
 Verifikasi instalasi:
+
 ```bash
 bun --version
 ```
@@ -272,7 +310,7 @@ Edit `lib/uploadthing.ts` dan tambahkan route baru:
 export const uploadRouter = {
   // Route yang sudah ada
   imageUploader: f({ image: { maxFileSize: "4MB" } })...
-  
+
   // Route baru
   videoUploader: f({ video: { maxFileSize: "64MB" } })
     .middleware(async () => {
@@ -299,17 +337,17 @@ Starter ini sudah dikonfigurasi dengan best practice security:
 
 ## 📚 Tech Stack Details
 
-| Technology | Version | Purpose |
-|------------|---------|---------|
-| Next.js | 16.x.x | React framework dengan App Router |
-| React | 19.2.4 | UI library terbaru |
-| TypeScript | 5.x | Type safety |
-| Prisma | 7.x.x | Database ORM |
-| Better Auth | 1.5.x | Authentication dengan native hashing |
-| UploadThing | 7.7.4 | File uploads & CDN |
-| Tailwind CSS | 4.x | Utility-first CSS |
-| shadcn/ui | 3.8.5 | UI components |
-| Bun | Latest | Package manager & runtime |
+| Technology   | Version | Purpose                              |
+| ------------ | ------- | ------------------------------------ |
+| Next.js      | 16.x.x  | React framework dengan App Router    |
+| React        | 19.x.x  | UI library terbaru                   |
+| TypeScript   | 5.x     | Type safety                          |
+| Prisma       | 7.x.x   | Database ORM                         |
+| Better Auth  | 1.x.x   | Authentication dengan native hashing |
+| UploadThing  | 7.x.x   | File uploads & CDN                   |
+| Tailwind CSS | 4.x     | Utility-first CSS                    |
+| shadcn/ui    | 4.x.x   | UI components                        |
+| Bun          | Latest  | Package manager & runtime            |
 
 ## 🔥 Kenapa Starter Ini?
 
@@ -325,18 +363,22 @@ Starter ini sudah dikonfigurasi dengan best practice security:
 ## 🚨 Troubleshooting
 
 ### Error: `Prisma Client not generated`
+
 ```bash
 bun run db:generate
 ```
 
 ### Error: `Environment variable not found`
+
 Pastikan semua env vars di `.env.example` sudah diisi di `.env`
 
 ### Error: Upload gagal
+
 - Cek `UPLOADTHING_TOKEN` sudah benar
 - Pastikan ukuran file tidak melebihi limit
 
 ### Error: Login redirect loop
+
 - Clear cookies browser
 - Cek `BETTER_AUTH_URL` dan `NEXT_PUBLIC_APP_URL` sama
 
@@ -346,27 +388,21 @@ Pastikan semua env vars di `.env.example` sudah diisi di `.env`
 
 Jika muncul error seperti:
 
-> Blocked cross-origin request from 192.168.x.x to /_next/* resource. To allow this, configure "allowedDevOrigins" in next.config
+> Blocked cross-origin request from 192.168.x.x to /\_next/\* resource. To allow this, configure "allowedDevOrigins" in next.config
 
 **Solusi:**
+
 - Buka `next.config.ts` dan pastikan `allowedDevOrigins` berisi:
-  - `localhost`
-  - `localhost:3000`
-  - `127.0.0.1`
-  - `127.0.0.1:3000`
-  - Ip Local LAN misal `192.168.1.12` lihat `network` saat menjalankan `bun run dev` di terminal untuk mengtahui IP LAN lokal Anda
+  - `IP LAN Anda`
+  - Untuk mengetahui IP LAN lokal Anda, misalnya `192.168.1.12`, cek bagian `network` saat menjalankan `bun run dev` di terminal.
 - Restart dev server setelah mengedit config.
-- Jika dev server berjalan di port lain (misal 3001), tambahkan port tersebut ke daftar.
 
 **Contoh config:**
+
 ```typescript
 allowedDevOrigins: [
-  "localhost",
-  "localhost:3000",
-  "127.0.0.1",
-  "127.0.0.1:3000",
-  "192.168.1.12" // IP LAN lokal yang didapat dari network saat menjalankan dev server
-]
+  "192.168.1.12", // IP LAN lokal yang didapat dari network saat menjalankan dev server
+];
 ```
 
 Ini memastikan device lokal dan IP LAN bisa akses Next.js dev server tanpa error CORS.

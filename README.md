@@ -8,15 +8,33 @@
 
 Using modern stack of choice with clean configuration and following the latest best practice standards. Ready to help you build fast, secure, and scalable full-stack web applications from the start. Happy coding! 🎉
 
+## 📸 Preview
+
+### Landing Page
+
+![Landing Page Preview](public/preview/homepage.png)
+
+### Dashboard
+
+![Dashboard Preview](public/preview/dashboard.png)
+
+### Login Page
+
+![Login Page Preview](public/preview/login.png)
+
+### Upload Page
+
+![Upload Page Preview](public/preview/upload-page.png)
+
 ## ✨ Highlights
 
-- ⚡ **Next.js 16** - Fullstack React framework with App Router and server components
-- 🔐 **Better Auth 1.5.5** - Modern authentication framework
-- 🗄️ **Prisma 7** - Best ORM with Neon PostgreSQL adapter
-- 📤 **UploadThing 7** - File/image uploads with automatic CDN
-- 🎨 **Tailwind CSS v4** - CSS-first configuration that's faster
+- ⚡ **Next.js** - Fullstack React framework with App Router and server components
+- 🔐 **Better Auth** - Modern authentication framework
+- 🗄️ **Prisma** - Best ORM with Neon PostgreSQL adapter
+- 📤 **UploadThing** - File/image uploads with automatic CDN
+- 🎨 **Tailwind CSS** - CSS-first configuration that's faster
 - 🎭 **shadcn/ui** - Beautiful and accessible UI components
-- 📝 **TypeScript 5** - Full type-safety across the entire codebase
+- 📝 **TypeScript** - Full type-safety across the entire codebase
 - 🏃 **Bun** - Super fast package manager
 
 ## 📦 What's Included?
@@ -24,12 +42,14 @@ Using modern stack of choice with clean configuration and following the latest b
 This starter kit comes pre-configured with:
 
 ### Ready-to-use Pages
+
 - ✅ **Landing Page** (`/`) - Public page with quick start guide
 - ✅ **Login Page** (`/login`) - Login form with validation and error handling
 - ✅ **Dashboard** (`/dashboard`) - Protected route with session check
 - ✅ **Upload Demo** - Pre-built image and file upload components
 
 ### Authentication Features
+
 - ✅ Email & password authentication with Better Auth native hashing
 - ✅ Multiple concurrent sessions (multiSession plugin)
 - ✅ Cross-origin support with CORS headers
@@ -39,12 +59,14 @@ This starter kit comes pre-configured with:
 - ✅ Database seed script for admin user
 
 ### Database & ORM
+
 - ✅ Prisma schema following Better Auth best practice
 - ✅ User, Session, Account, and Verification models
 - ✅ PrismaNeon adapter for Neon PostgreSQL
 - ✅ Migrations and seeding pre-configured
 
 ### File Upload
+
 - ✅ UploadThing integration with route handlers
 - ✅ Image upload (max 4MB) with preview
 - ✅ File upload (max 16MB) for various types
@@ -61,9 +83,13 @@ codenight-starter/
 │   │   └── login/                # Login page
 │   │       └── page.tsx
 │   ├── (dashboard)/              # Protected routes (login required)
-│   │   ├── layout.tsx            # Layout with header and auth check
+│   │   ├── layout.tsx            # Layout with sidebar, header & auth check
 │   │   ├── logout-button.tsx     # Logout button component
-│   │   └── dashboard/            # Dashboard page
+│   │   ├── mobile-sidebar.tsx    # Mobile responsive sidebar
+│   │   ├── nav-links.tsx         # Sidebar navigation links
+│   │   ├── dashboard/            # Dashboard page
+│   │   │   └── page.tsx
+│   │   └── upload/               # Upload page
 │   │       └── page.tsx
 │   ├── api/                      # API Routes
 │   │   ├── auth/[...all]/        # Better Auth endpoints
@@ -81,8 +107,8 @@ codenight-starter/
 │   │   ├── label.tsx
 │   │   └── ...                   # And many more
 │   └── upload/                   # Upload components
-│       ├── ImageUpload.tsx       # Image upload component
-│       └── FileUpload.tsx        # File upload component
+│       ├── ImageUpload.tsx       # Image upload dropzone
+│       └── FileUpload.tsx        # File upload dropzone
 │
 ├── lib/                          # Core utilities and configs
 │   ├── auth.ts                   # Better Auth config (server)
@@ -111,25 +137,33 @@ codenight-starter/
 ## 🎯 Main Folders Explained
 
 ### `app/`
+
 Main Next.js App Router folder. Divided into route groups:
+
 - **(public)** - Routes accessible without login
 - **(dashboard)** - Routes requiring authentication
 - **api/** - API endpoints for auth and uploads
 
 ### `components/`
+
 Reusable React components:
+
 - **ui/** - shadcn/ui components with radix-nova style
 - **upload/** - Special components for file/image uploads
 
 ### `lib/`
+
 Core logic and configuration:
+
 - **auth.ts** - Better Auth configuration with native hashing and multiSession
 - **prisma.ts** - Singleton Prisma client with Neon adapter
 - **uploadthing.ts** - File router for upload handling
 - **env.ts** - Environment variables validation
 
 ### `prisma/`
+
 Database schema and seeding:
+
 - **schema.prisma** - Database models (user, session, account, verification)
 - **seed.ts** - Script to create default admin user
 
@@ -140,21 +174,25 @@ Database schema and seeding:
 This starter uses **Bun** as the package manager. Install it first:
 
 **On macOS/Linux:**
+
 ```bash
 curl -fsSL https://bun.sh/install | bash
 ```
 
 **On Windows (PowerShell):**
+
 ```powershell
 powershell -c "irm bun.sh/install.ps1 | iex"
 ```
 
 **Or using npm:**
+
 ```bash
 npm install -g bun
 ```
 
 Verify installation:
+
 ```bash
 bun --version
 ```
@@ -272,7 +310,7 @@ Edit `lib/uploadthing.ts` and add a new route:
 export const uploadRouter = {
   // Existing routes
   imageUploader: f({ image: { maxFileSize: "4MB" } })...
-  
+
   // New route
   videoUploader: f({ video: { maxFileSize: "64MB" } })
     .middleware(async () => {
@@ -299,17 +337,17 @@ This starter is configured with security best practices:
 
 ## 📚 Tech Stack Details
 
-| Technology | Version | Purpose |
-|------------|---------|---------|
-| Next.js | 16.x.x | React framework with App Router |
-| React | 19.2.4 | Modern UI library |
-| TypeScript | 5.x | Type safety |
-| Prisma | 7.x.x | Database ORM |
-| Better Auth | 1.5.x | Authentication with native hashing |
-| UploadThing | 7.7.4 | File uploads & CDN |
-| Tailwind CSS | 4.x | Utility-first CSS |
-| shadcn/ui | 3.8.5 | UI components |
-| Bun | Latest | Package manager & runtime |
+| Technology   | Version | Purpose                            |
+| ------------ | ------- | ---------------------------------- |
+| Next.js      | 16.x.x  | React framework with App Router    |
+| React        | 19.x.x  | Modern UI library                  |
+| TypeScript   | 5.x     | Type safety                        |
+| Prisma       | 7.x.x   | Database ORM                       |
+| Better Auth  | 1.x.x   | Authentication with native hashing |
+| UploadThing  | 7.x.x   | File uploads & CDN                 |
+| Tailwind CSS | 4.x     | Utility-first CSS                  |
+| shadcn/ui    | 4.x.x   | UI components                      |
+| Bun          | Latest  | Package manager & runtime          |
 
 ## 🔥 Why This Starter?
 
@@ -325,18 +363,22 @@ This starter is configured with security best practices:
 ## 🚨 Troubleshooting
 
 ### Error: `Prisma Client not generated`
+
 ```bash
 bun run db:generate
 ```
 
 ### Error: `Environment variable not found`
+
 Make sure all env vars from `.env.example` are filled in `.env`
 
 ### Error: Upload failed
+
 - Check `UPLOADTHING_TOKEN` is correct
 - Make sure file size doesn't exceed the limit
 
 ### Error: Login redirect loop
+
 - Clear browser cookies
 - Check `BETTER_AUTH_URL` and `NEXT_PUBLIC_APP_URL` are the same
 
@@ -346,27 +388,21 @@ Make sure all env vars from `.env.example` are filled in `.env`
 
 If you see errors like:
 
-> Blocked cross-origin request from 192.168.x.x to /_next/* resource. To allow this, configure "allowedDevOrigins" in next.config
+> Blocked cross-origin request from 192.168.x.x to /\_next/\* resource. To allow this, configure "allowedDevOrigins" in next.config
 
 **Solution:**
+
 - Open `next.config.ts` and make sure `allowedDevOrigins` includes:
-  - `localhost`
-  - `localhost:3000`
-  - `127.0.0.1`
-  - `127.0.0.1:3000`
+  - `your LAN IP`
   - For your local LAN IP, for example `192.168.1.12`, check the `network` section when running `bun run dev` in the terminal to find your local LAN IP address.
 - Restart your dev server after editing config.
-- If your dev server runs on a different port (e.g. 3001), add that port to the list.
 
 **Example config:**
+
 ```typescript
 allowedDevOrigins: [
-  "localhost",
-  "localhost:3000",
-  "127.0.0.1",
-  "127.0.0.1:3000",
-  "192.168.1.12" // Local LAN IP obtained from the network when running the dev server
-]
+  "192.168.1.12", // Local LAN IP obtained from the network when running the dev server
+];
 ```
 
 This ensures your local devices and LAN IPs can access the Next.js dev server without CORS errors.
