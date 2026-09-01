@@ -7,13 +7,17 @@ import { NavLinks } from "./nav-links";
 import { LogoutButton } from "./logout-button";
 
 export function MobileSidebar({ email }: { email?: string }) {
-  const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
+  const [openedForPath, setOpenedForPath] = useState<string | null>(null);
+  const isOpen = openedForPath === pathname;
 
-  // Close the sidebar when the route changes
-  useEffect(() => {
-    setIsOpen(false);
-  }, [pathname]);
+  function openSidebar() {
+    setOpenedForPath(pathname);
+  }
+
+  function closeSidebar() {
+    setOpenedForPath(null);
+  }
 
   // Prevent body scroll when open
   useEffect(() => {
@@ -32,7 +36,7 @@ export function MobileSidebar({ email }: { email?: string }) {
       {/* Top Header Trigger */}
       <div className="md:hidden flex h-14 items-center gap-3 px-4 border-b border-border/40 bg-background/95 backdrop-blur z-40 sticky top-0">
         <button
-          onClick={() => setIsOpen(true)}
+          onClick={openSidebar}
           className="p-2 -ml-2 rounded-md hover:bg-muted transition-colors"
           aria-label="Open menu"
         >
@@ -45,7 +49,7 @@ export function MobileSidebar({ email }: { email?: string }) {
       {isOpen && (
         <div 
           className="fixed inset-0 z-50 bg-background/80 backdrop-blur-sm md:hidden"
-          onClick={() => setIsOpen(false)}
+          onClick={closeSidebar}
         />
       )}
 
@@ -58,7 +62,7 @@ export function MobileSidebar({ email }: { email?: string }) {
         <div className="flex h-14 items-center justify-between px-6 border-b border-border/40">
           <p className="font-bold tracking-tight">Menu</p>
           <button
-            onClick={() => setIsOpen(false)}
+            onClick={closeSidebar}
             className="p-2 -mr-2 rounded-md hover:bg-muted transition-colors text-muted-foreground"
             aria-label="Close menu"
           >
@@ -77,7 +81,7 @@ export function MobileSidebar({ email }: { email?: string }) {
               {email}
             </p>
             <div className="w-full">
-              <LogoutButton email={email} />
+              <LogoutButton />
             </div>
           </div>
         </div>

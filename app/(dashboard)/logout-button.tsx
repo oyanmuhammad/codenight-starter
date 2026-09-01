@@ -5,7 +5,7 @@ import { authClient } from "@/lib/auth-client";
 import { Button } from "@/components/ui/button";
 import { LogOut } from "lucide-react";
 
-export function LogoutButton({ email }: { email?: string }) {
+export function LogoutButton() {
   const router = useRouter();
 
   async function handleLogout() {

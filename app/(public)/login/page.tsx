@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import { authClient } from "@/lib/auth-client";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -137,10 +138,13 @@ export default function LoginPage() {
         </div>
       </div>
       <div className="relative hidden lg:block overflow-hidden animate-in fade-in duration-1000 ease-out fill-mode-both border-l border-border/40">
-        <img
+        <Image
           src="/image.png"
           alt="Image"
-          className="absolute inset-0 h-full w-full object-cover"
+          fill
+          sizes="50vw"
+          unoptimized
+          className="object-cover"
         />
       </div>
     </div>

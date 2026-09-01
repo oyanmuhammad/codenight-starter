@@ -45,7 +45,7 @@ async function SessionCheck({ children }: { children: React.ReactNode }) {
               {session.user.email}
             </p>
             <div className="w-full">
-              <LogoutButton email={session.user.email} />
+              <LogoutButton />
             </div>
           </div>
         </div>
